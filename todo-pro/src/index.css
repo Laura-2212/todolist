@@ -1,0 +1,271 @@
+:root {
+  --bg-gradient: linear-gradient(135deg, #fff0f5 0%, #f3e8ff 100%);
+  --card-bg: #ffffff;
+  --text-primary: #4a3e56;
+  --text-secondary: #8c7a9c;
+  
+  --primary-color: #ff85a1;
+  --primary-hover: #ff6b8b;
+  
+  --completed-bg: #f0fdf4;
+  --completed-border: #b7e4c7;
+  --completed-badge: #d8f3dc;
+  --completed-text: #2d6a4f;
+  
+  --pending-bg: #fff5f7;
+  --pending-border: #ffccd5;
+  --pending-badge: #ffe5ec;
+  --pending-text: #9d0208;
+  
+  --delete-bg: #ffe5e5;
+  --delete-hover: #fcd5d5;
+  --delete-text: #e63946;
+
+  --border-radius: 20px;
+  --box-shadow: 0 10px 25px rgba(255, 182, 193, 0.3);
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: 'Quicksand', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+}
+
+body {
+  background: var(--bg-gradient);
+  color: var(--text-primary);
+  min-height: 100vh;
+  line-height: 1.6;
+  padding: 24px 16px;
+}
+
+.app-container {
+  max-width: 850px;
+  margin: 0 auto;
+}
+
+/* Header Fofo */
+.app-header {
+  text-align: center;
+  margin-bottom: 2rem;
+  padding: 2rem 1.5rem;
+  background-color: var(--card-bg);
+  border-radius: var(--border-radius);
+  box-shadow: var(--box-shadow);
+  border: 2px solid #fff;
+}
+
+.app-header h1 {
+  color: var(--primary-color);
+  font-size: 2.2rem;
+  margin-bottom: 0.5rem;
+  font-weight: 800;
+  letter-spacing: -0.5px;
+}
+
+.app-description {
+  color: var(--text-secondary);
+  font-size: 1.05rem;
+  max-width: 650px;
+  margin: 0 auto;
+}
+
+/* Layout Principal */
+.app-main {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+/* Seções e Formulário */
+.add-task-section, .tasks-section {
+  background-color: var(--card-bg);
+  padding: 1.8rem;
+  border-radius: var(--border-radius);
+  box-shadow: var(--box-shadow);
+  border: 2px solid #fff;
+}
+
+.add-task-section h2, .tasks-section h2 {
+  color: var(--text-primary);
+  margin-bottom: 1.2rem;
+  font-size: 1.35rem;
+}
+
+.task-form {
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+}
+
+.task-form input {
+  padding: 0.85rem 1.2rem;
+  border: 2px solid #f1e4f3;
+  border-radius: 14px;
+  font-size: 0.95rem;
+  background-color: #faf5fc;
+  color: var(--text-primary);
+  transition: all 0.2s ease;
+}
+
+.task-form input:focus {
+  outline: none;
+  border-color: var(--primary-color);
+  background-color: #fff;
+  box-shadow: 0 0 0 3px rgba(255, 133, 161, 0.2);
+}
+
+/* Botões */
+button {
+  cursor: pointer;
+  border: none;
+  border-radius: 14px;
+  padding: 0.75rem 1.2rem;
+  font-weight: 700;
+  font-size: 0.9rem;
+  transition: all 0.2s ease;
+}
+
+button:active {
+  transform: scale(0.97);
+}
+
+.btn-primary {
+  background-color: var(--primary-color);
+  color: white;
+  box-shadow: 0 4px 12px rgba(255, 133, 161, 0.4);
+}
+
+.btn-primary:hover {
+  background-color: var(--primary-hover);
+}
+
+/* Grid de Tarefas e Cards */
+.tasks-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.2rem;
+}
+
+.task-card {
+  padding: 1.4rem;
+  border-radius: 16px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 1.2rem;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.task-card:hover {
+  transform: translateY(-2px);
+}
+
+.task-header-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 0.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.task-header-row h3 {
+  font-size: 1.1rem;
+  color: var(--text-primary);
+}
+
+.task-content p {
+  color: var(--text-secondary);
+  font-size: 0.95rem;
+}
+
+/* Estados Visuais: Pendente vs Concluída */
+.task-card.pending {
+  background-color: var(--pending-bg);
+  border: 2px solid var(--pending-border);
+}
+
+.task-card.completed {
+  background-color: var(--completed-bg);
+  border: 2px solid var(--completed-border);
+}
+
+.task-card.completed h3 {
+  text-decoration: line-through;
+  opacity: 0.7;
+}
+
+/* Badges Fofas */
+.status-badge {
+  padding: 0.25rem 0.6rem;
+  font-size: 0.75rem;
+  font-weight: 700;
+  border-radius: 20px;
+  white-space: nowrap;
+}
+
+.pending .status-badge {
+  background-color: var(--pending-badge);
+  color: var(--pending-text);
+}
+
+.completed .status-badge {
+  background-color: var(--completed-badge);
+  color: var(--completed-text);
+}
+
+/* Ações dos Cards */
+.task-actions {
+  display: flex;
+  gap: 0.6rem;
+}
+
+.btn-status {
+  flex: 1;
+  background-color: #ffffff;
+  color: var(--text-primary);
+  border: 1px solid #e2d5ed;
+}
+
+.btn-status:hover {
+  background-color: #f7efff;
+}
+
+.btn-delete {
+  background-color: var(--delete-bg);
+  color: var(--delete-text);
+}
+
+.btn-delete:hover {
+  background-color: var(--delete-hover);
+}
+
+/* Estado de Lista Vazía */
+.empty-state {
+  text-align: center;
+  padding: 2rem;
+  background-color: #faf5fc;
+  border-radius: 16px;
+  border: 2px dashed #e2d5ed;
+  color: var(--text-secondary);
+}
+
+/* Responsividade (Desktop) */
+@media (min-width: 640px) {
+  .task-form {
+    flex-direction: row;
+  }
+
+  .task-form input[type="text"]:first-child {
+    flex: 2;
+  }
+
+  .task-form input[type="text"]:nth-child(2) {
+    flex: 3;
+  }
+
+  .tasks-grid {
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  }
+}
