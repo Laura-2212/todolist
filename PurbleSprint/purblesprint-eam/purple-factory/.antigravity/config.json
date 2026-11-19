@@ -1,0 +1,25 @@
+{
+  "project": "purplesprint-factory",
+  "design_system": {
+    "provider": "google-stitch",
+    "project_id": "1633125014481592218",
+    "theme": "cyber-arcade-dark"
+  },
+  "mcpServers": {
+    "sqlite": {
+      "command": "npx",
+      "args": ["-y", "@modelcontextprotocol/server-sqlite", "./database/purplesprint.sqlite"]
+    },
+    "filesystem": {
+      "command": "npx",
+      "args": ["-y", "@modelcontextprotocol/server-filesystem", "./"]
+    }
+  },
+  "skills": {
+    "auditar_codigo": {
+      "trigger": "/auditar",
+      "description": "Audita segurança XSS, integridade das chamadas da API Zoom, conformidade com o layout Stitch e regras pt-BR."
+    }
+  },
+  "humanInTheLoop": true
+}

@@ -1,0 +1,8 @@
+.env
+database/
+.venv/
+node_modules/
+.npm-cache/
+generated-projects/*
+!generated-projects/.gitkeep
+__pycache__/

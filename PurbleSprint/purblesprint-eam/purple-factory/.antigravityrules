@@ -1,0 +1,7 @@
+# Regras Globais do Projeto PurpleSprint — Google Antigravity
+
+1. **Idioma e Documentação:** Todo o código-fonte, comentários, commits e mensagens de interface devem ser escritos estritamente em Português do Brasil (pt-BR).
+2. **Identidade Visual (Google Stitch):** Preservar o Design System *Cyber Arcade / Purble Place* em Modo Escuro com a paleta oficial: `#462648`, `#18506A`, `#903765`, `#810A0A` e `#EAE8E8`.
+3. **Arquitetura e Clean Code:** Separar responsabilidades entre camada de dados (`config.php`), integrações externas (`zoom_api.php`), apresentação (`index.php`) e estilo (`assets/style.css`). Funções concisas e modulares.
+4. **Segurança e Credenciais:** Nunca expor chaves de API (Zoom ou Stitch) no código-fonte. Utilizar exclusivamente variáveis de ambiente via `.env`. Sanitizar todas as saídas HTML com `htmlspecialchars`.
+5. **Acessibilidade:** Garantir suporte nativo a opções de Intérprete de Libras e Legendas ao Vivo nas sessões de briefing via Zoom.
